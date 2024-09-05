@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            newToDoTask: '',
             toDoList: [
                 {
                     text: 'fare la spesa',
@@ -37,7 +38,17 @@ createApp({
                     text: 'gonfiare le gomme',
                     done: false
                 }
-            ]
+            ],
+            doneOfList: []
         }
+    },
+    methods: {
+        addNewTask(content) {
+            if (content.length >= 3) {
+                this.toDoList.push(content);
+                this.clearToDoInput();
+            }
+        },
+
     }
 }).mount('#app')
