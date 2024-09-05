@@ -1,12 +1,20 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*LOGO*/
+#logo h1 {
+    font-size: 70px;
+    color: #022149;
 }
 
-/* Utils */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+/*ToDo*/
+li i:hover {
+    cursor: pointer;
+    color: red;
+}
+
+li .btn-outline-secondary:hover {
+    background-color: green;
 }
