@@ -45,10 +45,18 @@ createApp({
     methods: {
         addNewTask(content) {
             if (content.length >= 3) {
-                this.toDoList.push(content);
+                this.toDoList.push({ text: this.newToDoTask, done: false });
                 this.clearToDoInput();
             }
         },
+        clearToDoInput() {
+            this.newToDoTask = '';
+        },
+        deleteToDoTask(toDoTaskIndex) {
+            this.toDoList[toDoTaskIndex].done = true;
+            this.doneOfList.push(this.toDoList[toDoTaskIndex]);
+            this.toDoList.splice(toDoTaskIndex, 1);
+        }
 
     }
 }).mount('#app')
