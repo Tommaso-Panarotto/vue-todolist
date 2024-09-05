@@ -10,7 +10,8 @@
 }
 
 /*ToDo*/
-li i:hover {
+li i:hover,
+#done del {
     cursor: pointer;
     color: red;
 }

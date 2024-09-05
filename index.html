@@ -43,19 +43,20 @@
                                 <input type="text" class="form-control" placeholder="Inserisci cose da fare"
                                     aria-label="Recipient's username" aria-describedby="button-addon2"
                                     v-model="newToDoTask" @keyup.enter="addNewTask(newToDoTask)">
-                                <button class="btn btn-outline-secondary" type="button"
-                                    id="button-addon2">Aggiungi</button>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                                    @click="addNewTask(newToDoTask)">Aggiungi</button>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div id="todo" class="mt-5 text-center">
-                <h2>Portati a termine:</h2>
-                <div class="card w-75 mx-auto mt-3">
+            <div id="done" class="mt-5 text-center">
+                <div class="card w-75 mx-auto mt-3" v-if="doneOfList.length > 0">
+                    <h2>Portati a termine:</h2>
                     <ul class="list-group list-group-flush text-start">
                         <li class="list-group-item d-flex justify-content-between align-items-center fs-4"
-                            v-for="(doneText, index) in doneOfList"><del class="text-danger">{{doneText.text}}</del>
+                            v-for="(doneText, index) in doneOfList"><del class="text-danger"
+                                @click="addFromDoneToDoTask(index)">{{doneText.text}}</del>
                         </li>
                     </ul>
                 </div>

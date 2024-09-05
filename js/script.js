@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            doneOfList: [],
             newToDoTask: '',
             toDoList: [
                 {
@@ -38,8 +39,7 @@ createApp({
                     text: 'gonfiare le gomme',
                     done: false
                 }
-            ],
-            doneOfList: []
+            ]
         }
     },
     methods: {
@@ -49,14 +49,22 @@ createApp({
                 this.clearToDoInput();
             }
         },
+
         clearToDoInput() {
             this.newToDoTask = '';
         },
+
         deleteToDoTask(toDoTaskIndex) {
             this.toDoList[toDoTaskIndex].done = true;
             this.doneOfList.push(this.toDoList[toDoTaskIndex]);
             this.toDoList.splice(toDoTaskIndex, 1);
-        }
+        },
+
+        addFromDoneToDoTask(toDoTaskIndex) {
+            this.doneOfList[toDoTaskIndex].done = false;
+            this.toDoList.push(this.doneOfList[toDoTaskIndex]);
+            this.doneOfList.splice(toDoTaskIndex, 1);
+        },
 
     }
 }).mount('#app')
